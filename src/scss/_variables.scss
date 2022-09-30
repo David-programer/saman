@@ -1,0 +1,23 @@
+// Variable overrides
+.dashboardStyle{
+    margin: 1%; 
+    width: 18%;
+}
+@media (max-width: 600px) {
+    .dashboardStyle{
+        margin: 1%; 
+        width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .dashboardStyle{
+        margin: 1%; 
+        width: 100%;
+    }
+}
+@media (max-width: 1200px) {
+    .dashboardStyle{
+        margin: 1%; 
+        width: 100%;
+    }
+}

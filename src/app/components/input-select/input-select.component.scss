@@ -1,0 +1,21 @@
+.dropdown-element{
+    cursor: pointer;
+    &:hover{
+        background-color: #f0f3f5;
+    }
+}
+
+.optionsInput{
+    list-style: none; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    border: .5px solid rgb(221, 221, 221);
+}
+
+.collapse{
+    display: none;
+}
+
+.show-collapse{
+    display: block !important;
+}

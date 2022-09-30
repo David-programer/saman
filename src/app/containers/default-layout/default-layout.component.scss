@@ -1,0 +1,33 @@
+#boxGhost{
+    display: block;
+    position: fixed;
+    margin: 1em;
+    z-index: 1000;
+    background-color: gray;
+    opacity: 100%;
+    border-radius: 5px;
+    //padding: 15em 40em;
+    color: white;
+    padding: 2em;
+    
+    animation: aparecer 5s ease-in normal both;
+}
+
+#boxGhost span{
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    float: inline-end;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes aparecer {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+    
+}
+

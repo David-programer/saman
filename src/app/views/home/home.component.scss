@@ -1,0 +1,29 @@
+
+img {
+  width: 100%;
+  object-fit: cover;
+  filter: sepia(30%);
+}
+
+.content-img{
+  max-height: 60em;
+}
+@media only screen and (min-width: 1900px) {
+    .content-img{
+      max-height: 60em;
+    }
+
+  }
+@media only screen and (max-width: 1600px) {
+
+    .content-img{
+      max-height: 37em;
+      overflow-y: bottom;
+    }
+  }
+  @media only screen and (max-width: 1300px) {
+
+    .content-img{
+      max-height: 60em;
+    }
+  }

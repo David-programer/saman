@@ -1,0 +1,50 @@
+<form [formGroup]="form_grup" class="d-flex flex-column" style="gap: 1.5rem;">
+    <div *ngFor="let section of sections; index as i">
+       <div [hidden]="validar_dependencies(section.dependencies)">
+            <div *ngIf="section.title || section.description" class="mb-3">
+                <hr>
+                <div class="d-flex">
+                    <div>
+                        <h5 class="m-0">{{section.title}}</h5>
+                        <p class="m-0 ">{{section.description}}</p>
+                    </div>
+                    <span hidden [id]="'requiredIcon'+i" class="ml-1 text-danger cil-asterisk-circle" style="font-size: .6rem;"></span>
+                </div>
+            </div>
+
+            <div *ngIf="section.inputs != undefined && section.inputs.length >= 1" class="form-container" >
+                <div *ngFor="let input of section.inputs" class="d-flex flex-column justify-content-end">
+                    <div *ngIf="input.type == 'radio' || input.type == 'checkbox'; else input_form">
+                        <div class="form-check">
+                            <input class="form-check-input" [checked]="input.checked" [ngClass]="'check-'+input.name" [type]="input.type" [id]="'check-'+input.name+input.value" [formControlName]="input.name" [name]="input.name" (change)="set_value_checks(input.name, input.value); handler_blur_event(input)">
+                            <label class="form-check-label" [for]="'check-'+input.name+input.value">
+                                <span *ngIf="input.label.icon" class="m-0 mr-1" [ngClass]="input.label.icon"></span>{{input.label.text}}
+                            </label>
+                            <div class="invalid-tooltip">¡Este campo es obligatorio!</div>
+                        </div>
+                    </div>
+
+                    <ng-template #input_form>
+                        <datalist [id]="input.id_datalist" *ngIf="input.datalist">
+                            <option *ngFor="let options of input.datalist" [value]="options">{{ options }}</option>
+                        </datalist>
+                        <div [hidden]="validar_dependencies(input.dependencies, input.name, input.required)">
+                            <label *ngIf="input.label" [for]="'input-'+input.name"> <span *ngIf="input.label.icon" class="mr-1" [ngClass]="input.label.icon" ></span>{{input.label.text}} <span *ngIf="input.required" class="cil-asterisk-circle text-danger" style="font-size: .6rem;"></span> </label>
+                            <div class="input-group" >
+                                <input class="form-control" [ngClass]="input.class_input" [id]="'input-'+input.name" [name]="input.name" [type]="input.type" [placeholder]="input.placeholder? input.placeholder : ''" [formControlName]="input.name" (change)="valid_inputs(input.name, input.error_message)" (blur)="input.blur_event ? handler_blur_event(input) : null" [pattern]="input.pattern">
+                                <div class="invalid-tooltip"><span class="cil-warning mr-1"></span> <span [id]="'message_error'+input.name">{{input.error_message}}</span> </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <div class="d-flex">
+        <div class="ml-auto">
+            <button class="btn btn-outline-secondary btn-sm mr-2" (click)="reset_forms(); handler_delete_event()"> BORRAR</button>
+            <button class="btn btn-sm" type="submit" [disabled]="btn_sumbit.disabled" [ngClass]="btn_sumbit.class" (click)="send_form()" >{{btn_sumbit.text | uppercase}}</button>
+        </div>
+    </div>
+</form>

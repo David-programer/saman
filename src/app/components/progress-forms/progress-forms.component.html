@@ -1,0 +1,6 @@
+<div class="d-flex">
+    <div *ngFor="let page of cant_pages" class="d-flex align-items-center position-relative" >
+        <ngb-progressbar style="width: 250px;" type="success" [value]="page.cant_forms_completed / page.cant_forms * 100"></ngb-progressbar>
+        <fa-icon class="position-absolute  h3" [ngClass]="color_check" style="z-index: 100; margin: auto; right: -4.8px; top: auto; bottom: auto;" [icon]="icon_check" ></fa-icon>
+    </div>
+</div>

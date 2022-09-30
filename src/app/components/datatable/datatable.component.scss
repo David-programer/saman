@@ -1,0 +1,77 @@
+.hover-change-icon{
+    cursor: pointer;
+    &:hover{
+        color: rgb(97, 97, 97);
+    }
+}
+
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+    color: var(--secondary);
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+    background-color: #f0f3f5 !important;
+    border-color: rgb(168, 168, 168) !important;
+    color: black !important;
+}
+
+.sort-active{
+    color: var(--primary);
+}
+
+.sort-hide{
+    color: transparent;
+}
+
+.hover-change-title{
+    cursor: pointer;
+    &:hover{
+        color: gray !important;
+    }
+}
+
+.form-control input{
+    border: none;
+}
+
+.form-control input:focus{
+    outline: none;
+}
+
+.shape{
+    background: black;
+    display: inline;
+}
+
+.icon{
+    color: transparent;
+    font-size: 1.2rem;
+    float: right;
+}
+
+.active{
+    color: black;
+}
+
+.selected{
+    background-color: rgba(194, 194, 194, 0.2);
+}
+
+.table-overflow{
+    width: 100% !important;
+    overflow-x: auto;
+}
+
+.td-nowrap{
+    white-space: nowrap !important;
+}
+
+.td-style{
+    max-width: max-content !important;
+}
+
+th{
+    vertical-align: top !important;
+    border-bottom: none !important;
+    height: min-content !important;
+}

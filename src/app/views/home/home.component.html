@@ -1,0 +1,13 @@
+<div class="carouselSliderHome">
+    <carousel [noPause]="false" [interval]="5000" class="carousel-welcome">
+        <slide *ngFor="let img of images">
+            <div class="content-img">
+                <img src="{{url}}{{img.name}}.jpg" alt="First slide" class="img-fluid" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Bienvenido a SAMAN</h3>
+                    <p>{{img.desc}}</p>
+                </div>
+            </div>
+        </slide>
+    </carousel>
+</div>

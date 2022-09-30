@@ -1,0 +1,17 @@
+<div class="input-group">
+    <div class="btn-group w-100" dropdown>
+        <div class="input-group-prepend align-self-start">
+          <div class="input-group-text">{{labelText}}</div>
+        </div>
+        <div class="form-control d-flex juifsty-content-start align-items-center flex-wrap position-relative">
+          <div class=" m-1 p-1 bg-light rounded-pill optionSelected text-nowrap" *ngFor="let data of selectedata">{{data.nombre}} <fa-icon [icon]="icons[0]" (click)="handlerDeleteItem(data)"></fa-icon></div>
+          <div class="input-container">
+            <input #inputSearch [id]="'input-'+labelText" type="text" (keyup)="handlerSelect($event)"  (focus)="handlerCargaDatos()" dropdownToggle aria-controls="dropdown-animated" autocomplete="off"  spellcheck="false">
+          </div>
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu list-select" role="menu" aria-labelledby="button-animated">
+            <li role="menuitem" *ngFor="let item of datos" (click)="handlerClick(item)" ><p class="dropdown-item">{{ item.nombre }}</p></li>
+          </ul>
+        </div>
+        
+    </div>
+</div>

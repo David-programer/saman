@@ -1,0 +1,12 @@
+<div class="btn-group w-100" role="group">
+    <div class="input-group-text">{{title}}</div>
+    <div class="btn-group w-100 bg-white" dropdown>
+      <button id="button-animated" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle text-end d-flex align-items-center" aria-controls="dropdown-animated">
+        {{valueDefault}}
+        <span class="ml-auto caret"></span>
+      </button>
+      <ul id="dropdown-animated" *dropdownMenu #dropdowCom class="dropdown-menu dropdown-overflow w-100" role="menu" aria-labelledby="button-animated">
+        <li role="menuitem" *ngFor="let item of data" ><p class="dropdown-item m-0 text-truncate" [ngStyle]="{'max-width' : dropdowCom.clientWidth + 'px'}" (click)="handlerClickItem(item.id, item.nombre)">{{ item.nombre }}</p></li>
+      </ul>
+    </div>
+</div>

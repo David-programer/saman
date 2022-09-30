@@ -1,0 +1,440 @@
+html{
+    scroll-behavior: smooth;
+}
+.debug {
+    position:absolute;
+    z-index:10000000;
+    margin-top:20%;
+    display: block;
+    margin: auto;
+    background-color: pink;
+    border-radius: 5px;
+    text-align: center;
+    color: red;
+    width: 90%;
+    box-shadow: 10px 10px 21px 0px rgba(0, 0, 0, 0.75);
+  }
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+
+/*------------------------------------------------------------*/
+.bienvenidos{
+    //border: 1px solid red;
+    width: 100%;
+}
+
+.carouselSliderHome{
+  height: 40vh;
+}
+
+.carousel-welcome img{
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+/*------------------------------------------------------------*/
+
+.ta-center{
+    display: block;
+    text-align: center;
+}
+
+.azul{
+    border: 2px solid blue;
+}
+.rojo{
+    border: 2px solid red;
+}
+.verde{
+    border: 2px solid green;
+}
+.morado{
+    border: 2px solid purple;
+}
+.naranja{
+    border: 2px solid orange;
+}
+.gris{
+    border: 2px solid gray;
+}
+.negro{
+    border:2px solid black;
+}
+.blanco{
+    border: 2px solid white;
+}
+
+.reducirAlturaChart1 {
+    height: 20rem;
+}
+
+.reducirAlturaChart2 {
+    height: 30rem;
+}
+
+.reducirAlturaChart3 {
+    height: 35rem;
+}
+
+.reducirAlturaChart4 {
+    height: 7rem;
+}
+
+.elementToFadeInAndOut {
+    -webkit-animation: fadeIn 1s linear forwards;
+    animation: fadeIn 1s linear forwards;
+}
+ //Tamaño maximo de un card para tablets
+$breakpoint-tablet: 900px;
+@media (max-width: $breakpoint-tablet) {
+    .cardCol{
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+
+    .cardBody{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+  
+}
+ //Tamaño maximo de un card Smartphones
+$breakpoint-smartphone: 600px;
+@media (max-width: $breakpoint-tablet) {
+    .cardCol{
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+    }
+    
+    .cardBody{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+  
+}
+
+@-webkit-keyframes fadeIn{
+    0% {
+        opacity:0;
+      }
+      100% {
+        opacity:1;
+      }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+      }
+      100% {
+        opacity:1;
+      }
+}
+
+
+.SelectComportamientoVentas{
+    font-size: 0.9em;
+    padding: 0;
+}
+.SinDatos{
+    font-size: 3em;
+    //margin-top: 10%;
+    text-align: center;
+}
+
+/* --------------------------------------- ESTILOS REPORTES --------------------------------------------------------*/
+
+.linkDescarga i, .linkDescarga{
+    text-align: center;
+    font-size: 1.2em !important;
+    &:hover {
+        color:#20a8d8;
+    }
+}
+.linkDownload{
+  color: green;
+}
+/* -------------------------------------------- TABLAS NEGROS ------------------------------------------------------*/
+.tablaNegro tr td{
+    font-size: 0.7em;
+}
+.tablaNegro th td{
+    padding: 0 !important;
+}
+/*---------------------------------------------- REPORTES ---------------------------------------------------------*/
+
+/* ---- START - DATEPICKER -----*/
+.form-group.hidden {
+    width: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+.custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+.custom-day.focused {
+    background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+    background-color: rgb(2, 117, 216);
+    color: white;
+}
+.custom-day.faded {
+    background-color: rgba(2, 117, 216, 0.5);
+}
+
+
+/* ----------------------------------- MODAL ------------------------------------------*/
+.modal-reportes .modal-content{
+    width: 100%;
+    margin: 10% 0%;
+}
+
+.labelDatepicker{
+    width: 100%;
+}
+.modal{
+    z-index: 1041;
+}
+
+.tab-content{
+    border: none;
+}
+
+.td-w-modal{
+    width: 15%;
+}
+
+.itemModal .nav-link.active{
+    background: #c8ced3 !important;
+}
+
+.SinDatosModal{
+    font-size: 3em;
+    text-align: center;
+    padding: 4%;
+}
+
+.hideDivClick{
+  display: none;
+}
+.showDivClick{
+  display: block;position: absolute;padding:1em;width: max-content;border: 3px dotted yellow;margin: 0 auto;background-color: darkslateblue;z-index: 99999;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  margin-top: 20em;
+  margin-left:50em;
+  color:white;
+  text-align:center;
+  
+}
+.modal-title-colilla {
+    font-size: 2em;
+    margin-right: 1em;
+  }
+  .modal-body-colilla{
+    font-size: 1.5em;
+  }
+  .modal-body-colilla span{
+    font-size: 1.6em;
+    color: white;
+  }
+  .btn-grow{
+    font-size: 1.6em;
+  }
+
+.alertVisible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+  }
+.alertHidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear, height 3s;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+/* ---------------------------------------------- TABLAS DE ESTADOS -----------------------------------*/
+.boxStatesPdv table, .boxStateZonasPdv table {
+    text-align: center;
+    width: 100%;
+  }
+  .boxStatesPdv table th, .boxStateZonasPdv table th {
+    border-bottom: 2px solid #d1cece;
+    font-size: 0.9em;
+  }
+  .boxStatesPdv table tr td p, .boxStateZonasPdv table tr td p {
+    text-align: initial;
+    margin: 0;
+    font-size: 0.9em;
+  }
+  .boxStatesPdv table tr td p {
+    line-height:0;
+  }
+  .boxStateZonasPdv table tr td p {
+    line-height:1em;
+  }
+  .boxStatesPdv table tr td:first-child p {
+    text-align: center;
+  }
+/* ---------------------------------------------- TABLAS DE ESTADOS -----------------------------------*/
+  
+/* ------------------- Monitoreo Rentabilidad ------------------- */
+  .buttonsPdv label {
+    font-size: 0.9em;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+  } 
+
+  .oculto{
+    transition-property: display;
+    transition-duration: 3s;
+    display: none;
+  }
+/* ------------------- Monitoreo Rentabilidad ------------------- */
+
+/* -------------------------------------------------- CHECKBOX ----------------------------------------------------------------- */
+.checkboxComponent{
+  height: 100% !important;
+  margin-bottom: 0 !important;
+  border-radius: 1rem;
+}
+
+.checkboxComponent span::before{
+  top: 4px !important;
+}
+
+.alert-custom{
+  color: var(--primary);
+  background-color: rgb(255, 255, 255);
+  border-color: var(--primary);
+  position: fixed;
+  z-index: 100;
+  right: 1rem;
+  top: 8rem;
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  0% {
+      right: -13rem;
+    }
+  
+    100% {
+      right: 1rem;
+    }
+}
+
+.btn-invalid{
+  cursor: not-allowed;
+}
+
+.sortable-item, .sortable-item-active{
+  padding: .4rem;
+  border: 1px solid gray;
+  border-radius: .2rem;
+  margin-bottom: .5rem ;
+}
+
+.sortable-wrapper{
+  padding: .5rem;
+  height: 100% !important;
+}
+
+.sortable-wrapper-to-assign{
+  border: 3px dotted rgb(0, 195, 255);
+  height: 100% !important;
+  border-radius: .5rem;
+  padding: .8rem;
+  min-height: 20rem !important;
+  background-color: rgba(202, 239, 255, 0.41);
+}
+
+.placeholder-to-aassign{
+  animation: placeholderToAassign ease 2s infinite;
+}
+
+@keyframes placeholderToAassign {
+  0% {
+    font-size: 1.6rem;
+  }
+  
+  50% {
+    font-size: 1.4rem;
+  }
+
+  100%{
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 425px){ 
+  .container-fluid{
+    padding: 0 !important;
+  }
+}
+
+.tooltip .tooltip-inner {
+  padding-top: 0.5rem;
+}
+
+a.nav-link.active:hover{
+  color:black;
+}
+.monitorZonasPopover{
+  background-color: black;
+  width: max-content !important;
+}
+
+.pdvTwkSearch{
+  //animation: twinkle 0.7s infinite alternate
+  animation: twinkle 0.7s alternate;
+  animation-iteration-count: 15;
+}
+.zoneTwkSearch{
+  animation: twinkleBorder 0.3s alternate;
+  animation-iteration-count: 20;
+}
+
+@keyframes twinkle {
+  0%{
+      background-color: fuchsia;                
+      color: white;                                
+  }
+  100%{
+      background-color: white;
+      border: 1px solid fuchsia;
+      color: fuchsia;  
+  }
+}
+
+@keyframes twinkleBorder {
+  0%{                
+      border: 1px solid fuchsia;                                
+  }
+  100%{
+      border: 1px solid white;
+  }
+}
+.popover{
+  max-width: max-content !important;
+}
+

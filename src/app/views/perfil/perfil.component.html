@@ -1,0 +1,39 @@
+<div class="card animated fadeIn">
+    <div class="card-header">
+        EDITAR USUARIO
+    </div>
+    <ngb-alert #alert type="custom" [dismissible]="false" *ngIf="mesaage" [animation]="true" (closed)="mesaage = ''">{{mesaage}}</ngb-alert>
+    <div class="card-body">
+        <form class="d-flex align-items-center flex-column" [formGroup]="actualizarUsuario"  autocomplete="off" >
+            <div class="p-2 my-3 d-flex justify-content-center align-items-center">
+                <img class="img-avatar rounded-circle" [src]="actualizarUsuario.get('profile_photo_path').value ? actualizarUsuario.get('profile_photo_path').value :'http://200.110.168.155:90/images/logo-acertemos.png'" alt="avatar-user">
+            </div>
+
+            <div class="w-75">
+                <div class="col">
+                    <div class="input-group mb-2">
+                        <div class="input-group-text" >Nombre</div>
+                        <input type="text" formControlName="name" class="form-control"  autocomplete="off"  spellcheck="false" [ngbPopover]="messagePoper" (keypress)="messagePoper = ''" placement="top" triggers="manual" #p="ngbPopover" (focus)="p.open()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-text">Cédula</div>
+                        <input type="number" formControlName="cedula" class="form-control"  autocomplete="off"  spellcheck="false" [ngbPopover]="messagePoper" (keypress)="messagePoper = ''" placement="top" triggers="manual" #d="ngbPopover" (focus)="d.open()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-text">Avatar</div>
+                        <input type="text" formControlName="profile_photo_path" class="form-control"  autocomplete="off"  spellcheck="false" [ngbPopover]="messagePoper" (keypress)="messagePoper = ''" placement="top" triggers="manual" #e="ngbPopover" (focus)="e.open()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-text">Contraseña</div>
+                        <input type="password" formControlName="password" class="form-control"  autocomplete="off"  spellcheck="false" [ngbPopover]="messagePoper" (keypress)="messagePoper = ''" placement="top" triggers="manual" #f="ngbPopover" (focus)="f.open()">
+                    </div>
+    
+                    <button [disabled]="actualizarUsuario.invalid" type="submit" class="btn btn-primary w-100 mb-2" (click)="handlerEditar()">GUARDAR</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer" *ngIf="mesaageGuide">
+        <p>¡El usuario se ha actualizado!, tendrás que <strong> iniciar sesión</strong> de nuevo, por eso serás redireccionado al login en <strong>{{segundos}}s</strong></p>
+    </div>
+</div>

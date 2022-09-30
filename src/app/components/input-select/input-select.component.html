@@ -1,0 +1,28 @@
+<div >
+    <input
+        id="typeahead-focus"
+        type="search"
+        class="form-control"
+        [(ngModel)]="inputModel"
+        (focus)="list = true"
+        (keyup)="handlerSearch($event)"
+        autocomplete="off" spellcheck="false"
+        [disabled]="disabled"
+    />
+    <ul class="p-0 m-0 rounded optionsInput" *ngIf="list" #dropdownList style="z-index: 1000; background-color: white;" [ngClass]="{'position-absolute': absolute}">
+        <li *ngFor="let option of options" class="p-2 dropdown-element text-truncate" [ngStyle]="{'max-width': dropdownList.offsetParent.clientWidth + 'px'}" (click)="inputModel = option[path]; inputValue = option; list = false; clicked_event.emit(option)">
+            <span class="pl-2">{{option[path]}}</span> <span *ngIf="description" class="pull-right cil-caret-bottom mr-2" style="font-size: .6rem;" (click)="handlerSelect(option[path]); $event.stopPropagation()"></span>
+            <div *ngIf="description" class="pl-4 py-2 collapse" [id]="'collapse-'+option[path]">
+                <p class="mb-0">
+                    <span class="cil-briefcase text-primary"></span> {{option.horario}} 
+                    <span class="cil-bed text-primary"></span> {{option.descanso}} 
+                </p>
+                <span>{{option.detalle}}</span>
+            </div>
+        </li>
+        <li *ngIf="options.length == 0" class="p-2 d-flex align-items-center">
+            <span class="cil-search h4 mr-1"></span>
+            <h4 class="h6">No se encontraron registros</h4>
+        </li>
+    </ul>
+</div>

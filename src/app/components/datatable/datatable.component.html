@@ -1,0 +1,51 @@
+<div class="mt-5 table-overflow">
+    <div class="d-flex flex-nowrap">
+        <div class="d-flex btn-group" role="group">
+            <div class="input-group-text">Registros</div>
+            <button type="button" class="btn  btn-sm"  [ngClass]="{'btn-outline-secondary': !btn1, 'btn-secondary': btn1}" (click)="handlerClickMore($event.target.innerText)">5</button>
+            <button type="button" class="btn  btn-sm"  [ngClass]="{'btn-outline-secondary': !btn2, 'btn-secondary': btn2}" (click)="handlerClickMore($event.target.innerText)">10</button>
+            <button type="button" class="btn  btn-sm"  [ngClass]="{'btn-outline-secondary': !btn3, 'btn-secondary': btn3}" (click)="handlerClickMore($event.target.innerText)">15</button>
+        </div>
+        <div class="btn-group ml-auto" role="group">
+            <div class="input-group-text"><span class="cil-search"></span></div>
+            <div class="form-control">
+                <input [id]="'inputSearch-'+id" type="text" (keyup)="handlerSearch($event.target)" autocomplete="off" placeholder="Buscar ...">
+                <fa-icon *ngIf="actionDelete" (click)="handlerDeleteInput()" size="lg" [icon]="icons[1]" class="hover-change-icon text-secondary"></fa-icon>
+            </div>
+        </div>
+    </div>
+    <table  class="table table-striped mt-3 table-bordered table-sm table-hover">
+        <thead>
+            <tr class="text-uppercase" [id]="'tr-header'+id">
+              <th scope="col" class="title-th-tyle th-title text-center" *ngIf="thAction" >{{thAction}}</th>
+                <th scope="col" class="title-th-tyle" [id]="'th-'+key" *ngFor="let key of titles" (click)="handlerOrderBy(key)" class="hover-change-title datatable-title-component" >
+                    <a>{{key}}</a>
+                    <i  [id]="key" class="icon fa" [ngClass]="{'fa-caret-down': changeIconOrderBy , 'fa-caret-up': !changeIconOrderBy}"></i>
+                </th>
+              <th scope="col" class="title-th-tyle th-title text-center" *ngIf="options" >Opciones</th>
+            </tr>
+        </thead>
+        <tbody [id]="'table-body'+id">
+            <tr *ngFor="let datos of renderData | slice: (page-1) * pageSize : page * pageSize " >
+                <td *ngIf="actions" class="text-center td-nowrap">
+                    <fa-icon size="lg" *ngFor="let action of actions" [icon]="action.icon" (click)="handlerClickOptions(action.id, datos)" class="mx-1 hover-change-icon" [ngClass]="datos.style"></fa-icon>
+                </td>
+                <td *ngFor="let key of keys" class="td-style">
+                    <input *ngIf="key == 'input' else elseBlock" [value]="datos[key].value" [type]="datos[key].type" [id]="datos[key].id" [name]="datos[key].name" [checked]="datos[key].checked" (change)="handlerChangeOptions($event,datos[key])"/>
+                    <ng-template #elseBlock>{{handlerPrintFor(key, datos)}}</ng-template>
+                </td>
+                <td *ngIf="options" class="text-center td-nowrap">
+                    <fa-icon size="lg" *ngFor="let option of options" [icon]="option.icon" (click)="handlerClickOptions(option.id, datos)" class="mx-1 hover-change-icon text-secondary" [ngbTooltip]="option.tooltip"></fa-icon>
+                </td>
+            </tr>       
+
+            <tr *ngIf="renderDataHasData()">
+                <td [colSpan]="messageColSpan" class="text-center">No se encontraron registros coincidentes</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex align-items-center">
+        <p class="ml-2 text-secondary">{{renderSize()}} registros de {{dataSize}}</p>
+        <ngb-pagination [collectionSize]="dataSize" [pageSize]="pageSize" [(page)]="page" [maxSize]="10" (pageChange)="handlerPaintCol()" class="ml-auto"></ngb-pagination>
+    </div>  
+</div>

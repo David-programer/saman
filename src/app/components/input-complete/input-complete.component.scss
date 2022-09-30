@@ -1,0 +1,30 @@
+.form-control{
+    height: max-content;
+    width: 100%
+}
+
+.form-control input{
+    border: none;
+    width: 100%;
+}
+
+.input-container{
+    flex: 1;
+}
+
+.form-control input:focus{
+    outline: none;
+}
+
+.optionSelected{
+    font-size: .7rem;
+    flex: 0;
+}
+/*:-webkit-scrollbar*/
+.list-select{
+    max-height: 200px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    min-width: 6rem!important;
+}

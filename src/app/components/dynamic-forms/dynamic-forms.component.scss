@@ -1,0 +1,19 @@
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.checks-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.form-container label, .checks-container label{
+    cursor: pointer;
+}
+
+// div[hidden]{
+//     display: none;
+// }
